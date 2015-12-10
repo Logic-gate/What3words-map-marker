@@ -27,8 +27,12 @@ Please note, `demo.html` is just a demo. You will need to write up your own hand
 For more information about the what3words' api, head over to [ http://developer.what3words.com/api](http://developer.what3words.com/api)
 
 # Screenshot
+Screenshot of `demo.html`
+![demo.html](http://i.imgur.com/194Dp6F.png)
+
+Screenshot from [Rukny](http://www.rukny.com
 ![rukny demo](http://i.imgur.com/qG5is22.png)
-Note: The image above is from [Rukny](http://www.rukny.com)
+
 
 
 # Credits  
