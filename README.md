@@ -30,7 +30,7 @@ For more information about the what3words' api, head over to [ http://developer.
 Screenshot of `demo.html`
 ![demo.html](http://i.imgur.com/194Dp6F.png)
 
-Screenshot from [Rukny](http://www.rukny.com
+Screenshot from [Rukny](http://www.rukny.com)
 ![rukny demo](http://i.imgur.com/qG5is22.png)
 
 
