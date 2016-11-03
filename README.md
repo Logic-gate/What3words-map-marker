@@ -35,5 +35,3 @@ Screenshot from [Rukny](http://www.rukny.com)
 
 
 
-# Credits  
-The script was originally developed by [Stream Digital](http://www.streamdigital.com/) for [Rukny](http://www.rukny.com)
