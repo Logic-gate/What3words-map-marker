@@ -1,6 +1,7 @@
 
 # This branch includes w3w's new jquery plugin. 
 
+**includes files from [what3words](https://github.com/what3words/jquery-plugin-w3w-autosuggest)**
 
 A simple "responsive" JS script that integrates what3words into a GoogleMaps canvas
 
