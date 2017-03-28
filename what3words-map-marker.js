@@ -15,7 +15,7 @@ function MyLocationControl(controlDiv, map) {
     controlUI.title = 'My location';
     controlDiv.appendChild(controlUI);
 
-    // Setup the click event listeners: simply set the map to Chicago.
+    // Setup the click event listeners: simply set the map to Riyadh.
     controlUI.addEventListener('click', function() {
       if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -30,7 +30,7 @@ function MyLocationControl(controlDiv, map) {
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-       center: new google.maps.LatLng(35.137879, -82.836914),
+       center: new google.maps.LatLng(24.711989, 46.671947),
     zoom: 15,
      mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: true,
@@ -47,7 +47,7 @@ function initMap() {
 
 
 // Create the search box and link it to the UI element.
-      var input = document.getElementById('pac-input');
+      var input = document.getElementById('ml-one');
       var searchBox = new google.maps.places.SearchBox(input);
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -56,7 +56,7 @@ function initMap() {
       });
 
         var myMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(35.137879, -82.836914),
+        position: new google.maps.LatLng(24.711989, 46.671947),
         draggable: true
     });
 
@@ -87,7 +87,7 @@ function initMap() {
           }
   
         map.fitBounds(bounds);
-        myMarker.setPosition(place.geometry.location);
+      myMarker.setPosition(place.geometry.location);
 
       what3WordsConvert(place.geometry.location.lat().toFixed(3), place.geometry.location.lng().toFixed(3));
       });
@@ -99,7 +99,7 @@ function initMap() {
     });
 
     google.maps.event.addListener(myMarker, 'dragstart', function (evt) {
-        document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+        document.getElementById('current').innerHTML = '<p>...</p>';
     });
 
     map.setCenter(myMarker.position);
@@ -108,9 +108,10 @@ function initMap() {
 
 var what3WordsConvert = function(lat, lng) {
     what3words.positionToWords([lat, lng], function (ret) {
+
         document.getElementById('current').innerHTML = '<p>'+ ret.join('.') +'</p>';
-       
-        document.getElementById('three-word').value  = ret.join('.');
+        document.getElementById('ml-one').value  = ret.join('.');
+
     });
   }
 
@@ -126,3 +127,4 @@ var what3WordsConvert = function(lat, lng) {
           }); 
       }
   }
+

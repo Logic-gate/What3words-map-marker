@@ -1,0 +1,2269 @@
+/****************/
+/* VARIABLES 	*/
+/****************/
+.typeahead__dropdown, .typeahead__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  min-width: 160px;
+  padding: 0;
+  margin: 2px 0 0;
+  list-style: none;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 2px;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.typeahead__dropdown > li > a, .typeahead__list > li > a {
+  display: block;
+  padding: 0;
+  clear: both;
+  color: #333;
+  text-decoration: none;
+}
+
+.typeahead__dropdown > li > a .list-inner, .typeahead__list > li > a .list-inner {
+  padding: 6px 12px;
+}
+
+.typeahead__list > li.typeahead__group > a, .typeahead__list > li.typeahead__group > a:focus, .typeahead__list > li.typeahead__group > a:hover, .typeahead__list > li.typeahead__group.active > a {
+  cursor: default;
+}
+
+.typeahead__container.loading .typeahead__query:after, .typeahead__container.loading .typeahead__query:before {
+  -webkit-transition: all 0s linear,opacity 0.2s ease;
+  transition: all 0s linear,opacity 0.2s ease;
+  position: absolute;
+  z-index: 3;
+  content: '';
+  top: 50%;
+  right: 0.55em;
+  margin-top: -10.5px;
+  width: 21px;
+  height: 21px;
+  box-sizing: border-box;
+  border-radius: 500rem;
+  border-style: solid;
+  border-width: 0.1em;
+}
+
+.typeahead__container {
+  position: relative;
+  font: 14px Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+
+.typeahead__container .w3w-logo {
+  max-width: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.typeahead__container.rtl .w3w-logo {
+  right: 0;
+  left: auto;
+  top: 0;
+}
+
+.typeahead__container.rtl .typeahead__field input {
+  direction: rtl;
+  padding: 10px;
+}
+
+.typeahead__container.rtl .list-inner {
+  text-align: right;
+}
+
+.typeahead__container.rtl .typeahead__query:after {
+  right: auto;
+  left: 10px;
+}
+
+.typeahead__container input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+}
+
+.typeahead__container optgroup {
+  font: inherit;
+  margin: 0;
+  font-weight: 700;
+}
+
+.typeahead__container select {
+  font: inherit;
+  margin: 0;
+  text-transform: none;
+}
+
+.typeahead__container textarea {
+  font: inherit;
+  margin: 0;
+  overflow: auto;
+}
+
+.typeahead__container [type=button]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.typeahead__container [type=reset]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.typeahead__container [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.typeahead__container button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.typeahead__container fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+.typeahead__container legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+.typeahead__container [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.typeahead__container [type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.typeahead__container [type=number]::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.typeahead__container [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.typeahead__container [type=search] {
+  outline-offset: -2px;
+}
+
+.typeahead__container ::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.typeahead__container ::-webkit-file-upload-button {
+  font: inherit;
+}
+
+.typeahead__container * {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.typeahead__container.hint .typeahead__hint {
+  display: block !important;
+}
+
+.typeahead__container.hint .typeahead__field input:last-child {
+  background: #fff;
+}
+
+.typeahead__container.filter .typeahead__filter {
+  z-index: 5;
+}
+
+.typeahead__container.filter .typeahead__dropdown {
+  display: block !important;
+}
+
+.typeahead__container .typeahead__dropdown {
+  display: none !important;
+}
+
+.typeahead__container .typeahead__hint {
+  display: none !important;
+}
+
+.typeahead__container .typeahead__list {
+  display: none !important;
+}
+
+.typeahead__container [type=reset]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.typeahead__container [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.typeahead__container [type=button]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.typeahead__container.backdrop + .typeahead__backdrop {
+  display: block !important;
+}
+
+.typeahead__container.result .typeahead__list {
+  display: block !important;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+}
+
+.typeahead__container + .typeahead__backdrop {
+  display: none !important;
+}
+
+.typeahead__container.cancel:not(.loading) .typeahead__cancel-button {
+  visibility: visible;
+  opacity: 0.25;
+}
+
+.typeahead__container.cancel:not(.loading) .typeahead__cancel-button:hover {
+  opacity: 0.4;
+}
+
+.typeahead__container.loading .typeahead__query:after {
+  -webkit-animation: a 0.6s linear;
+          animation: a 0.6s linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-color: #fff transparent transparent;
+  box-shadow: 0 0 0 1px transparent;
+}
+
+.typeahead__container.loading .typeahead__query:before {
+  border-color: #ccc;
+}
+
+.typeahead__query {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  font-size: 14px;
+}
+
+.typeahead__query:after {
+  content: '';
+  width: 20px;
+  height: 100%;
+  display: block;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzU2IDM1NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzU2IDM1NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMwMDk0NDQ7c3Ryb2tlOiMzOUI1NEE7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fTwvc3R5bGU+PGcgaWQ9IndOUU5Tei50aWYiPjxnIGlkPSJYTUxJRF8xXyI+PGcgaWQ9IlhNTElEXzIyXyI+PHBhdGggaWQ9IlhNTElEXzI0XyIgY2xhc3M9InN0MCIgZD0iTTAsMTg2LjVjMC01LjcsMC0xMS4zLDAtMTdjMC42LTcuMiwxLjItMTQuNCwyLjUtMjEuNWM3LjctNDIuMywyNy42LTc3LjcsNjAuMy0xMDUuNmMyNS4xLTIxLjQsNTQuMS0zNC43LDg2LjctNDAuMWM2LjctMS4xLDEzLjQtMS42LDIwLjEtMi4zYzUuNywwLDExLjMsMCwxNywwYzYuNiwwLjYsMTMuMiwxLjEsMTkuOCwyLjJjMzkuMyw2LjYsNzMsMjQuMSwxMDAuNSw1M2MyNS40LDI2LjYsNDAuOSw1OC4yLDQ2LjksOTQuNWMxLjEsNi42LDEuNiwxMy4yLDIuMiwxOS44YzAsNS43LDAsMTEuMywwLDE3Yy0wLjYsNy4yLTEuMiwxNC40LTIuNSwyMS41Yy03LjcsNDIuMy0yNy42LDc3LjctNjAuMywxMDUuNmMtMjUuMSwyMS40LTU0LjEsMzQuNy04Ni43LDQwLjFjLTYuNywxLjEtMTMuNCwxLjYtMjAuMSwyLjNjLTUuNywwLTExLjMsMC0xNywwYy02LjYtMC42LTEzLjItMS4xLTE5LjgtMi4yYy0zOS4zLTYuNi03My0yNC4xLTEwMC41LTUzYy0yNS40LTI2LjYtNDAuOS01OC4yLTQ2LjktOTQuNUMxLjEsMTk5LjcsMC42LDE5My4xLDAsMTg2LjV6IE0zMzQuMywxNzguMUMzMzMuOCw5MS40LDI2NC45LDIyLDE3OC40LDIxLjhDOTEuNiwyMS42LDIyLjEsOTEsMjEuOCwxNzcuNUMyMS42LDI2NC41LDkxLDMzNCwxNzcuNywzMzQuMkMyNjQuNiwzMzQuMywzMzMuNywyNjQuOCwzMzQuMywxNzguMXoiLz48cGF0aCBpZD0iWE1MSURfMjNfIiBjbGFzcz0ic3QwIiBkPSJNMTQ3LjcsMjUzLjdjLTMuNywwLjItNi43LTEuMi05LjMtMy43Yy0xNy41LTE3LjYtMzUuMS0zNS4xLTUyLjYtNTIuN2MtNy4zLTcuNC00LjUtMTkuNCw1LjItMjJjNS4xLTEuNCw5LjYtMC4xLDEzLjUsMy43YzEyLjksMTIuOSwyNS44LDI1LjgsMzguNywzOC43YzQuNiw0LjYsNC42LDQuNiw5LjIsMGMzMi42LTMyLjYsNjUuMS02NS4xLDk3LjctOTcuN2M1LjUtNS41LDEzLjItNS45LDE4LjYtMWM1LjYsNS4xLDUuOCwxMy41LDAuMiwxOS4xYy03LDcuMS0xNC4xLDE0LjEtMjEuMiwyMS4yYy0zMC4xLDMwLjEtNjAuMiw2MC4yLTkwLjIsOTAuM0MxNTQuNywyNTIuNCwxNTEuNSwyNTQsMTQ3LjcsMjUzLjd6Ii8+PC9nPjwvZz48L2c+PC9zdmc+");
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  display: none;
+}
+
+.typeahead__query.valid:after {
+  display: block;
+}
+
+.typeahead__field {
+  font-size: 0;
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  direction: auto;
+  padding-left: 50px;
+  width: 100%;
+}
+
+.rtl .typeahead__field {
+  direction: rtl !important;
+  padding-left: 0;
+  padding-right: 50px;
+}
+
+.typeahead__field > * {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.typeahead__field input {
+  padding: 10px 35px 10px 10px;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  height: 40px;
+  width: 100%;
+}
+
+.typeahead__field input:active {
+  border-color: #ccc;
+}
+
+.typeahead__field input:focus {
+  border-color: #ccc;
+}
+
+.typeahead__field input[type=search] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.typeahead__field input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+.typeahead__field input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.typeahead__hint {
+  background: #fff;
+}
+
+.typeahead__dropdown {
+  right: 0;
+  left: auto;
+  z-index: 5;
+}
+
+.typeahead__dropdown > li > a:focus {
+  background-color: #f5f5f5;
+}
+
+.typeahead__dropdown > li > a:hover {
+  background-color: #f5f5f5;
+}
+
+.typeahead__dropdown > li.active > a {
+  background-color: #f5f5f5;
+}
+
+.typeahead__dropdown li:last-child {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid #ccc;
+}
+
+.typeahead__list .twa {
+  font-size: 15px;
+}
+
+.typeahead__list .twa-flag {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.typeahead__list .info {
+  display: block;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.typeahead__list > li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+}
+
+.typeahead__list > li .list-inner {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.typeahead__list > li .list-inner.invisible {
+  display: none;
+}
+
+.typeahead__list > li > a {
+  box-shadow: none !important;
+}
+
+.typeahead__list > li > a:focus {
+  background-color: #f5f5f5;
+  box-shadow: none !important;
+}
+
+.typeahead__list > li > a:hover {
+  background-color: #e6323d;
+  color: #FFF;
+  box-shadow: none !important;
+}
+
+.typeahead__list > li.typeahead__group {
+  border-color: #ccc;
+  font-weight: 700;
+}
+
+.typeahead__list > li.typeahead__group:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.typeahead__list > li.typeahead__group + li.typeahead__item {
+  border-color: #ccc;
+}
+
+.typeahead__list > li.active a {
+  background-color: #e6323d;
+  color: #FFF;
+}
+
+.typeahead__list.empty > li > a {
+  cursor: default;
+}
+
+.typeahead__list.empty > li > a:focus {
+  background-color: transparent;
+}
+
+.typeahead__list.empty > li > a:hover {
+  background-color: transparent;
+}
+
+.typeahead__list.empty > li.active > a {
+  background-color: transparent;
+}
+
+.typeahead__container.result.standardblend .typeahead__list {
+  max-height: 49px;
+}
+
+.typeahead__cancel-button {
+  visibility: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 12px;
+  right: 0.8em;
+  cursor: pointer;
+  background: url("data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQzOC41MzMgNDM4LjUzMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDM4LjUzMyA0MzguNTMzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQwOS4xMzMsMTA5LjIwM2MtMTkuNjA4LTMzLjU5Mi00Ni4yMDUtNjAuMTg5LTc5Ljc5OC03OS43OTZDMjk1LjczNiw5LjgwMSwyNTkuMDU4LDAsMjE5LjI3MywwICAgYy0zOS43ODEsMC03Ni40Nyw5LjgwMS0xMTAuMDYzLDI5LjQwN2MtMzMuNTk1LDE5LjYwNC02MC4xOTIsNDYuMjAxLTc5LjgsNzkuNzk2QzkuODAxLDE0Mi44LDAsMTc5LjQ4OSwwLDIxOS4yNjcgICBjMCwzOS43OCw5LjgwNCw3Ni40NjMsMjkuNDA3LDExMC4wNjJjMTkuNjA3LDMzLjU5Miw0Ni4yMDQsNjAuMTg5LDc5Ljc5OSw3OS43OThjMzMuNTk3LDE5LjYwNSw3MC4yODMsMjkuNDA3LDExMC4wNjMsMjkuNDA3ICAgczc2LjQ3LTkuODAyLDExMC4wNjUtMjkuNDA3YzMzLjU5My0xOS42MDIsNjAuMTg5LTQ2LjIwNiw3OS43OTUtNzkuNzk4YzE5LjYwMy0zMy41OTYsMjkuNDAzLTcwLjI4NCwyOS40MDMtMTEwLjA2MiAgIEM0MzguNTMzLDE3OS40ODUsNDI4LjczMiwxNDIuNzk1LDQwOS4xMzMsMTA5LjIwM3ogTTMyMi42MjEsMjcwLjkzOWMzLjYxNywzLjYxMyw1LjQyOCw3LjkwNSw1LjQyOCwxMi44NTQgICBjMCw1LjEzMy0xLjgxMSw5LjUxNC01LjQyOCwxMy4xMjdsLTI1LjY5MywyNS43MDFjLTMuNjE0LDMuNjEzLTcuOTk0LDUuNDItMTMuMTM1LDUuNDJjLTQuOTQ4LDAtOS4yMzYtMS44MDctMTIuODQ3LTUuNDIgICBsLTUxLjY3Ni01MS42ODJsLTUxLjY3OCw1MS42ODJjLTMuNjE2LDMuNjEzLTcuODk4LDUuNDItMTIuODQ3LDUuNDJjLTUuMTQsMC05LjUxNy0xLjgwNy0xMy4xMzQtNS40MmwtMjUuNjk3LTI1LjcwMSAgIGMtMy42MTYtMy42MTMtNS40MjQtNy45OTQtNS40MjQtMTMuMTI3YzAtNC45NDgsMS44MDktOS4yNCw1LjQyNC0xMi44NTRsNTEuNjc4LTUxLjY3M2wtNTEuNjc4LTUxLjY3OCAgIGMtMy42MTYtMy42MTItNS40MjQtNy44OTgtNS40MjQtMTIuODQ3YzAtNS4xNCwxLjgwOS05LjUxNyw1LjQyNC0xMy4xMzRsMjUuNjk3LTI1LjY5M2MzLjYxNy0zLjYxNiw3Ljk5NC01LjQyNCwxMy4xMzQtNS40MjQgICBjNC45NDksMCw5LjIzMSwxLjgwOSwxMi44NDcsNS40MjRsNTEuNjc4LDUxLjY3NGw1MS42NzYtNTEuNjc0YzMuNjEtMy42MTYsNy44OTgtNS40MjQsMTIuODQ3LTUuNDI0ICAgYzUuMTQxLDAsOS41MjEsMS44MDksMTMuMTM1LDUuNDI0bDI1LjY5MywyNS42OTNjMy42MTcsMy42MTcsNS40MjgsNy45OTQsNS40MjgsMTMuMTM0YzAsNC45NDgtMS44MTEsOS4yMzUtNS40MjgsMTIuODQ3ICAgbC01MS42NzUsNTEuNjc4TDMyMi42MjEsMjcwLjkzOXoiIGZpbGw9IiM1NTU1NTUiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") no-repeat scroll 50% transparent;
+  display: none;
+}
+
+.typeahead__search-icon {
+  padding: 0 1.25rem;
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url("data:image/svg+xml;charset=utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI1MC4zMTMgMjUwLjMxMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjUwLjMxMyAyNTAuMzEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnIGlkPSJTZWFyY2giPgoJPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkOyIgZD0iTTI0NC4xODYsMjE0LjYwNGwtNTQuMzc5LTU0LjM3OGMtMC4yODktMC4yODktMC42MjgtMC40OTEtMC45My0wLjc2ICAgYzEwLjctMTYuMjMxLDE2Ljk0NS0zNS42NiwxNi45NDUtNTYuNTU0QzIwNS44MjIsNDYuMDc1LDE1OS43NDcsMCwxMDIuOTExLDBTMCw0Ni4wNzUsMCwxMDIuOTExICAgYzAsNTYuODM1LDQ2LjA3NCwxMDIuOTExLDEwMi45MSwxMDIuOTExYzIwLjg5NSwwLDQwLjMyMy02LjI0NSw1Ni41NTQtMTYuOTQ1YzAuMjY5LDAuMzAxLDAuNDcsMC42NCwwLjc1OSwwLjkyOWw1NC4zOCw1NC4zOCAgIGM4LjE2OSw4LjE2OCwyMS40MTMsOC4xNjgsMjkuNTgzLDBDMjUyLjM1NCwyMzYuMDE3LDI1Mi4zNTQsMjIyLjc3MywyNDQuMTg2LDIxNC42MDR6IE0xMDIuOTExLDE3MC4xNDYgICBjLTM3LjEzNCwwLTY3LjIzNi0zMC4xMDItNjcuMjM2LTY3LjIzNWMwLTM3LjEzNCwzMC4xMDMtNjcuMjM2LDY3LjIzNi02Ny4yMzZjMzcuMTMyLDAsNjcuMjM1LDMwLjEwMyw2Ny4yMzUsNjcuMjM2ICAgQzE3MC4xNDYsMTQwLjA0NCwxNDAuMDQzLDE3MC4xNDYsMTAyLjkxMSwxNzAuMTQ2eiIgZmlsbD0iIzU1NTU1NSIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=") no-repeat scroll 50% transparent;
+}
+
+@-webkit-keyframes a {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes a {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+.typeahead__result.detached .typeahead__list {
+  position: relative;
+  z-index: 6;
+  top: auto;
+  left: auto;
+}
+
+/*
+Responsive CSS Sprite created using: http://responsive-css.us/
+*/
+.w3w-flags-ad, .w3w-flags-ae, .w3w-flags-af, .w3w-flags-ag, .w3w-flags-ai, .w3w-flags-al, .w3w-flags-am, .w3w-flags-an, .w3w-flags-ao, .w3w-flags-aq, .w3w-flags-ar, .w3w-flags-as, .w3w-flags-at, .w3w-flags-au, .w3w-flags-aw, .w3w-flags-ax, .w3w-flags-az, .w3w-flags-ba, .w3w-flags-bb, .w3w-flags-bd, .w3w-flags-be, .w3w-flags-bf, .w3w-flags-bg, .w3w-flags-bh, .w3w-flags-bi, .w3w-flags-bj, .w3w-flags-bl, .w3w-flags-bm, .w3w-flags-bn, .w3w-flags-bo, .w3w-flags-bq, .w3w-flags-br, .w3w-flags-bs, .w3w-flags-bt, .w3w-flags-bv, .w3w-flags-bw, .w3w-flags-by, .w3w-flags-bz, .w3w-flags-ca, .w3w-flags-cc, .w3w-flags-cd, .w3w-flags-cf, .w3w-flags-cg, .w3w-flags-ch, .w3w-flags-ci, .w3w-flags-ck, .w3w-flags-cl, .w3w-flags-cm, .w3w-flags-cn, .w3w-flags-co, .w3w-flags-cr, .w3w-flags-cu, .w3w-flags-cv, .w3w-flags-cw, .w3w-flags-cx, .w3w-flags-cy, .w3w-flags-cz, .w3w-flags-de, .w3w-flags-dj, .w3w-flags-dk, .w3w-flags-dm, .w3w-flags-do, .w3w-flags-dz, .w3w-flags-ec, .w3w-flags-ee, .w3w-flags-eg, .w3w-flags-eh, .w3w-flags-er, .w3w-flags-es, .w3w-flags-et, .w3w-flags-fi, .w3w-flags-fj, .w3w-flags-fk, .w3w-flags-fm, .w3w-flags-fo, .w3w-flags-fr, .w3w-flags-ga, .w3w-flags-gb, .w3w-flags-gd, .w3w-flags-ge, .w3w-flags-gf, .w3w-flags-gg, .w3w-flags-gh, .w3w-flags-gi, .w3w-flags-gl, .w3w-flags-gm, .w3w-flags-gn, .w3w-flags-gp, .w3w-flags-gq, .w3w-flags-gr, .w3w-flags-gs, .w3w-flags-gt, .w3w-flags-gu, .w3w-flags-gw, .w3w-flags-gy, .w3w-flags-hk, .w3w-flags-hm, .w3w-flags-hn, .w3w-flags-hr, .w3w-flags-ht, .w3w-flags-hu, .w3w-flags-id, .w3w-flags-ie, .w3w-flags-il, .w3w-flags-im, .w3w-flags-in, .w3w-flags-io, .w3w-flags-iq, .w3w-flags-ir, .w3w-flags-is, .w3w-flags-it, .w3w-flags-je, .w3w-flags-jm, .w3w-flags-jo, .w3w-flags-jp, .w3w-flags-ke, .w3w-flags-kg, .w3w-flags-kh, .w3w-flags-ki, .w3w-flags-km, .w3w-flags-kn, .w3w-flags-kp, .w3w-flags-kr, .w3w-flags-kw, .w3w-flags-ky, .w3w-flags-kz, .w3w-flags-la, .w3w-flags-lb, .w3w-flags-lc, .w3w-flags-li, .w3w-flags-lk, .w3w-flags-lr, .w3w-flags-ls, .w3w-flags-lt, .w3w-flags-lu, .w3w-flags-lv, .w3w-flags-ly, .w3w-flags-ma, .w3w-flags-mc, .w3w-flags-md, .w3w-flags-me, .w3w-flags-mf, .w3w-flags-mg, .w3w-flags-mh, .w3w-flags-mk, .w3w-flags-ml, .w3w-flags-mm, .w3w-flags-mn, .w3w-flags-mo, .w3w-flags-mp, .w3w-flags-mq, .w3w-flags-mr, .w3w-flags-ms, .w3w-flags-mt, .w3w-flags-mu, .w3w-flags-mv, .w3w-flags-mw, .w3w-flags-mx, .w3w-flags-my, .w3w-flags-mz, .w3w-flags-na, .w3w-flags-nc, .w3w-flags-ne, .w3w-flags-nf, .w3w-flags-ng, .w3w-flags-ni, .w3w-flags-nl, .w3w-flags-no, .w3w-flags-np, .w3w-flags-nr, .w3w-flags-nu, .w3w-flags-nz, .w3w-flags-om, .w3w-flags-pa, .w3w-flags-pe, .w3w-flags-pf, .w3w-flags-pg, .w3w-flags-ph, .w3w-flags-pk, .w3w-flags-pl, .w3w-flags-pm, .w3w-flags-pn, .w3w-flags-pr, .w3w-flags-ps, .w3w-flags-pt, .w3w-flags-pw, .w3w-flags-py, .w3w-flags-qa, .w3w-flags-re, .w3w-flags-ro, .w3w-flags-rs, .w3w-flags-ru, .w3w-flags-rw, .w3w-flags-sa, .w3w-flags-sb, .w3w-flags-sc, .w3w-flags-sd, .w3w-flags-se, .w3w-flags-sg, .w3w-flags-sh, .w3w-flags-si, .w3w-flags-sj, .w3w-flags-sk, .w3w-flags-sl, .w3w-flags-sm, .w3w-flags-sn, .w3w-flags-so, .w3w-flags-sr, .w3w-flags-ss, .w3w-flags-st, .w3w-flags-sv, .w3w-flags-sx, .w3w-flags-sy, .w3w-flags-sz, .w3w-flags-tc, .w3w-flags-td, .w3w-flags-tf, .w3w-flags-tg, .w3w-flags-th, .w3w-flags-tj, .w3w-flags-tk, .w3w-flags-tl, .w3w-flags-tm, .w3w-flags-tn, .w3w-flags-to, .w3w-flags-tr, .w3w-flags-tt, .w3w-flags-tv, .w3w-flags-tw, .w3w-flags-tz, .w3w-flags-ua, .w3w-flags-ug, .w3w-flags-um, .w3w-flags-us, .w3w-flags-uy, .w3w-flags-uz, .w3w-flags-va, .w3w-flags-vc, .w3w-flags-ve, .w3w-flags-vg, .w3w-flags-vi, .w3w-flags-vn, .w3w-flags-vu, .w3w-flags-wf, .w3w-flags-ws, .w3w-flags-xk, .w3w-flags-ye, .w3w-flags-yt, .w3w-flags-za, .w3w-flags-zm, .w3w-flags-zw {
+  display: inline-block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url("flags.png");
+}
+
+.w3w-flags-ad {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ae {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-af {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ag {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ai {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-al {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-am {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-an {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ao {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-aq {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ar {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-as {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-at {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-au {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-aw {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ax {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-az {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ba {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bb {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bd {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-be {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bf {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bg {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bh {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bi {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bj {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bl {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bm {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bn {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bo {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bq {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 0.104167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-br {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bs {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bt {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bv {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bw {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-by {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-bz {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ca {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cc {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cd {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cf {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cg {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ch {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ci {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ck {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cl {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cm {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cn {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-co {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cr {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cu {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cv {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cw {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cx {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cy {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-cz {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-de {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-dj {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-dk {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-dm {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-do {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 6.87500%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-dz {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ec {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ee {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-eg {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-eh {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-er {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-es {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-et {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fi {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fj {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fk {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fm {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fo {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-fr {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ga {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gb {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gd {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ge {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gf {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gg {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gh {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gi {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gl {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gm {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gn {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gp {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gq {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gr {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gs {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gt {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gu {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 13.6458%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gw {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-gy {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-hk {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-hm {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-hn {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-hr {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ht {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-hu {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-id {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ie {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-il {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-im {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-in {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-io {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-iq {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ir {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-is {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-it {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-je {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-jm {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-jo {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-jp {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ke {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kg {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kh {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ki {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-km {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kn {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kp {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kr {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kw {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 20.4167%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ky {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-kz {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-la {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lb {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lc {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-li {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lk {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lr {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ls {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lt {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lu {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-lv {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ly {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ma {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mc {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-md {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-me {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mf {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mg {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mh {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mk {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ml {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mm {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mn {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mo {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mp {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mq {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mr {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ms {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mt {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mu {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 27.1875%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mv {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mw {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mx {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-my {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-mz {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-na {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nc {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ne {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nf {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ng {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ni {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nl {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-no {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-np {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nr {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nu {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-nz {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-om {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pa {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pe {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pf {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pg {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ph {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pk {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pl {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pm {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pn {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pr {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ps {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pt {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-pw {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 33.9583%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-py {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-qa {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-re {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ro {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-rs {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ru {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-rw {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sa {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sb {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sc {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sd {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-se {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sg {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sh {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-si {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sj {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sk {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sl {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sm {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sn {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-so {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sr {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ss {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-st {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sv {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sx {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sy {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-sz {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tc {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-td {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tf {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 40.7292%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tg {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-th {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tj {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tk {
+  width: 128px;
+  height: 128px;
+  background-position: 9.87903% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tl {
+  width: 128px;
+  height: 128px;
+  background-position: 13.1552% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tm {
+  width: 128px;
+  height: 128px;
+  background-position: 16.4315% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tn {
+  width: 128px;
+  height: 128px;
+  background-position: 19.7077% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-to {
+  width: 128px;
+  height: 128px;
+  background-position: 22.9839% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tr {
+  width: 128px;
+  height: 128px;
+  background-position: 26.2601% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tt {
+  width: 128px;
+  height: 128px;
+  background-position: 29.5363% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tv {
+  width: 128px;
+  height: 128px;
+  background-position: 32.8125% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tw {
+  width: 128px;
+  height: 128px;
+  background-position: 36.0887% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-tz {
+  width: 128px;
+  height: 128px;
+  background-position: 39.3649% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ua {
+  width: 128px;
+  height: 128px;
+  background-position: 42.6411% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ug {
+  width: 128px;
+  height: 128px;
+  background-position: 45.9173% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-um {
+  width: 128px;
+  height: 128px;
+  background-position: 49.1935% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-us {
+  width: 128px;
+  height: 128px;
+  background-position: 52.4698% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-uy {
+  width: 128px;
+  height: 128px;
+  background-position: 55.7460% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-uz {
+  width: 128px;
+  height: 128px;
+  background-position: 59.0222% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-va {
+  width: 128px;
+  height: 128px;
+  background-position: 62.2984% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-vc {
+  width: 128px;
+  height: 128px;
+  background-position: 65.5746% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ve {
+  width: 128px;
+  height: 128px;
+  background-position: 68.8508% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-vg {
+  width: 128px;
+  height: 128px;
+  background-position: 72.1270% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-vi {
+  width: 128px;
+  height: 128px;
+  background-position: 75.4032% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-vn {
+  width: 128px;
+  height: 128px;
+  background-position: 78.6794% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-vu {
+  width: 128px;
+  height: 128px;
+  background-position: 81.9556% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-wf {
+  width: 128px;
+  height: 128px;
+  background-position: 85.2319% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ws {
+  width: 128px;
+  height: 128px;
+  background-position: 88.5081% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-xk {
+  width: 128px;
+  height: 128px;
+  background-position: 91.7843% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-ye {
+  width: 128px;
+  height: 128px;
+  background-position: 95.0605% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-yt {
+  width: 128px;
+  height: 128px;
+  background-position: 98.3367% 47.5000%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-za {
+  width: 128px;
+  height: 128px;
+  background-position: 0.0504032% 54.2708%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-zm {
+  width: 128px;
+  height: 128px;
+  background-position: 3.32661% 54.2708%;
+  background-size: 3200.00%;
+}
+
+.w3w-flags-zw {
+  width: 128px;
+  height: 128px;
+  background-position: 6.60282% 54.2708%;
+  background-size: 3200.00%;
+}

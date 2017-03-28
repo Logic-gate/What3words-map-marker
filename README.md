@@ -1,4 +1,7 @@
-# what3words-map-marker
+
+# This branch includes w3w's new jquery plugin. 
+
+
 A simple "responsive" JS script that integrates what3words into a GoogleMaps canvas
 
 The script aims to aid those who wish to integrate [what3words](http://www.what3words.com) into their existing projects by providing a `marker` based selection process; move the marker, get the three words. It uses the default  [what3word-js-wrapper](https://github.com/what3words/w3w-javascript-wrapper).
@@ -6,7 +9,7 @@ The script aims to aid those who wish to integrate [what3words](http://www.what3
 # Instructions on getting the demo to work
 
  * Make sure you add your own API key in `what3words.js`
- * Make sure you add your own GoogleMaps key in line `45` on `demo.html` 
+ * Make sure you add your own GoogleMaps key in line `68` on `demo.html` 
 
 If you are wondering how to catch the three words, as to pass it along or to store it; you can do so by capturing `ret` in the `what3WordsConvert` function from `what3words-map-marker.js`. 
 
@@ -26,12 +29,14 @@ Please note, `demo.html` is just a demo. You will need to write up your own hand
 
 For more information about the what3words' api, head over to [ http://developer.what3words.com/api](http://developer.what3words.com/api)
 
+
+
 # Screenshot
 Screenshot of `demo.html`
-![demo.html](http://i.imgur.com/194Dp6F.png)
+![demo.html](http://i.imgur.com/na9efv7.png)
 
-Screenshot from [Rukny](http://www.rukny.com)
-![rukny demo](http://i.imgur.com/qG5is22.png)
+Note: This version includes google suggestions; it will still translated the coordinates into 3 words.
 
+![demo2](http://i.imgur.com/bAPjVE7.png)
 
 

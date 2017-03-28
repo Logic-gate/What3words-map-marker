@@ -6,6 +6,11 @@
     <title>What3words Demo</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  <!-- include plugin's CSS -->
+  <link rel="stylesheet" href="dist/css/jquery.w3w-autosuggest-plugin.min.css">
     <style>
       html, body {
               text-align: center;
@@ -24,25 +29,71 @@
       #pac-input {
               text-align: center;
               } 
+
+      .w3w_logo {
+
+        width: 35%;
+        margin-top: 15px;
+      }
+
+      #current, #ml-one{
+        font-family: 'Open Sans', sans-serif;
+
+      }
+
     </style>
   </head>
   
   <body>
 
-    <input id="pac-input" class="controls" type="text" placeholder="Enter Address">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- include plugin's javascript -->
+    <script src="dist/js/jquery.w3w-autosuggest-plugin.bundle.js"></script>
+
     
     <div id="map"></div>
-    
-    <div id="current" class="text-center">Move The marker around</div>
+ 
+      <!-- In Rukny, we pass #current -->
+    <div id="current" class="text-center" >Move The marker around</div>
     
     <input id="three-word" type="hidden" name="attributes[What 3 words]">
     
-    <img width="150px" margin="auto" src="what3words_logo_final.png"/>
+
 
     
     <script src='what3words-map-marker.js'></script>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&libraries=places&callback=initMap" async defer></script>
+    
+       <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY &libraries=places&callback=initMap"
+     async defer></script>
+
+  <br>
+
+     <form>
+              <div class="form-row">
+                <input type="text" class="w3w-address-field" id="ml-one" onfocus="document.getElementById('current').innerHTML = this.value">
+              </div>
+            </form>
+
+     <script>
+  var w3w = $('#ml-one').w3wAddress({
+    key: what3words.API_KEY,
+    results: 5
+  });
+
+
+var current = document.getElementById('ml-one');
+
+current.onkeyup = function(){
+    document.getElementById('current').innerHTML = current.value;
+}
+
+  </script>
+
+ 
+
+      <img class='w3w_logo' src="what3words_logo_final.png" />
 
   </body>
 </html>
