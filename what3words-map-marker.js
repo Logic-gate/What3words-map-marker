@@ -65,7 +65,8 @@ function initMap(ret) {
 
         var myMarker = new google.maps.Marker({
         position: new google.maps.LatLng(latlng[0], latlng[1]),
-        draggable: true
+        draggable: true,
+        icon: 'marker-border.png'
     });
 
       var markers = [];
@@ -100,7 +101,10 @@ function initMap(ret) {
       what3WordsConvert(place.geometry.location.lat().toFixed(3), place.geometry.location.lng().toFixed(3));
       });
 
-      setCurrentPosition(map, myMarker);
+      if (ret != null) {
+      setCurrentPosition(map, myMarker, ret);
+    }
+    else {setCurrentPosition(map, myMarker);}
 
     google.maps.event.addListener(myMarker, 'dragend', function (evt) {
       what3WordsConvert(evt.latLng.lat().toFixed(3), evt.latLng.lng().toFixed(3));
@@ -125,16 +129,21 @@ var what3WordsConvert = function(lat, lng) {
 
   var convertwords = function(words) {
     what3words.wordsToPosition([words], function (ret) {
+      //For preview
     document.getElementById('test').innerHTML = ret;
     initMap(ret);
     
     });
   }
 
-    var setCurrentPosition = function(map, marker, set3word) {
-    if (navigator.geolocation) {
+    var setCurrentPosition = function(map, marker, ret, set3word) {
+      if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function (position) {
-              initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+              if (ret) {
+              initialLocation = new google.maps.LatLng(ret[0], ret[1]);
+              what3WordsConvert(ret[0],ret[1]);
+              }
+              else {initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);}
               map.setCenter(initialLocation);
               marker.setPosition(initialLocation);
               if (set3word) {
@@ -143,4 +152,3 @@ var what3WordsConvert = function(lat, lng) {
           }); 
       }
   }
-

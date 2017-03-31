@@ -60,7 +60,7 @@
     <input id="three-word" type="hidden" name="attributes[What 3 words]">
     
 
-<div id="test" class="text-center" value="24.711989, 46.671947">Lat/Lang</div>
+<div id="test" class="text-center" value="24.711989, 46.671947">test</div>
     
     <script src='what3words-map-marker.js'></script>
     
@@ -72,7 +72,7 @@
 
      <form>
               <div class="form-row">
-                <input type="text" class="w3w-address-field" id="ml-one" onfocus="document.getElementById('current').innerHTML = this.value">
+                <input type="text" class="w3w-address-field" id="ml-one">
               </div>
             </form>
 
@@ -82,15 +82,6 @@
     key: what3words.API_KEY,
     results: 5
   });
-
-var current = document.getElementById('ml-one');
-
-current.onkeyup = function(){
-    document.getElementById('current').innerHTML = current.value;
-}
-
-
-
   </script>
  
       <img class='w3w_logo' src="what3words_logo_final.png" />
