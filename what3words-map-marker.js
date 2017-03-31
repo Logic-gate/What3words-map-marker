@@ -28,9 +28,16 @@ function MyLocationControl(controlDiv, map) {
   }
 
 
-function initMap() {
+function initMap(ret) {
+  if (ret != null) {
+    var latlng = ret;
+  }
+  else {
+    var latlng = [24.711989, 46.671947]
+
+  }
   var map = new google.maps.Map(document.getElementById('map'), {
-       center: new google.maps.LatLng(24.711989, 46.671947),
+       center: new google.maps.LatLng(latlng[0], latlng[1]),
     zoom: 15,
      mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: true,
@@ -38,6 +45,7 @@ function initMap() {
         scaleControl: true,
         streetViewControl: true
   });
+  
 
   var myLocationControlDiv = document.createElement('div');
       var myLocationControl = new MyLocationControl(myLocationControlDiv, map);
@@ -56,7 +64,7 @@ function initMap() {
       });
 
         var myMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(24.711989, 46.671947),
+        position: new google.maps.LatLng(latlng[0], latlng[1]),
         draggable: true
     });
 
@@ -104,14 +112,22 @@ function initMap() {
 
     map.setCenter(myMarker.position);
     myMarker.setMap(map);
+
 }
 
 var what3WordsConvert = function(lat, lng) {
     what3words.positionToWords([lat, lng], function (ret) {
+    document.getElementById('current').innerHTML = '<p>'+ ret.join('.') +'</p>';
+    document.getElementById('ml-one').value  = ret.join('.');
 
-        document.getElementById('current').innerHTML = '<p>'+ ret.join('.') +'</p>';
-        document.getElementById('ml-one').value  = ret.join('.');
+    });
+  }
 
+  var convertwords = function(words) {
+    what3words.wordsToPosition([words], function (ret) {
+    document.getElementById('test').innerHTML = ret;
+    initMap(ret);
+    
     });
   }
 

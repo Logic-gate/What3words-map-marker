@@ -60,12 +60,12 @@
     <input id="three-word" type="hidden" name="attributes[What 3 words]">
     
 
-
+<div id="test" class="text-center" value="24.711989, 46.671947">Lat/Lang</div>
     
     <script src='what3words-map-marker.js'></script>
     
     
-       <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY &libraries=places&callback=initMap"
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpWtZ1d14GaFLSyj_UE9IvxYLTBfCQoRo&libraries=places&callback=initMap"
      async defer></script>
 
   <br>
@@ -77,11 +77,11 @@
             </form>
 
      <script>
+ 
   var w3w = $('#ml-one').w3wAddress({
     key: what3words.API_KEY,
     results: 5
   });
-
 
 var current = document.getElementById('ml-one');
 
@@ -89,10 +89,10 @@ current.onkeyup = function(){
     document.getElementById('current').innerHTML = current.value;
 }
 
+
+
   </script>
-
  
-
       <img class='w3w_logo' src="what3words_logo_final.png" />
 
   </body>

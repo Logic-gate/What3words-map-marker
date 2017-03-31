@@ -317,6 +317,8 @@
               for (var i = 0; i < suggestions.length && !isSuccess; i++) {
                 if (suggestions[i].innerText === value) {
                   isSuccess = true;
+                  var words = document.getElementById('ml-one').value;
+            convertwords(words);
                 }
               }
             }
@@ -338,6 +340,7 @@
                   // If W3A is VALID
                   if (response.hasOwnProperty('geometry')) {
                     isSuccess = true;
+
                   }
                 } // end success
               });
@@ -374,12 +377,14 @@
             var doneTyping = function () {
               // remove valid mark every time
               $(element).closest('.typeahead__query').removeClass('valid');
-
+               
               // Only check for validation when regex match
               if (regex.test($(element).val())) {
                 $(element).valid();
+
               }
             };
+          
 
             typingTimer = setTimeout(doneTyping, doneTypingInterval);
           }
