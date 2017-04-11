@@ -1,7 +1,7 @@
 var what3words = new function (language) {
 
-	this.API_KEY = 'YOURAPIKEY'; 		// Change to your what3words API key
-	this.language = language || 'en'; 	// Change to your default language
+	this.API_KEY = '#####'; 		// Change to your what3words API key
+	this.language = language || 'ar'; 	// Change to your default language
 
 	// --
 
